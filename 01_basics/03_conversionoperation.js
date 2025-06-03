@@ -24,3 +24,16 @@ console.log(valueinNumber3)
 
 let isLoggedIn=0;
 console.log(Boolean(isLoggedIn))
+
+
+console.log(true)
+console.log(+true)
+
+console.log(1+2+"3")
+console.log("1"+2+3)
+console.log("4"+"4")
+
+let gameCounter=100;
+let gameCounter1=100;
+console.log(gameCounter++)
+console.log(++gameCounter1)
