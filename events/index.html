@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="gray">
+    <h2>amazing images</h2>
+    <ul id="images">
+        <li><img  height="200px" id="back" src="https://i.pinimg.com/736x/b9/8d/92/b98d92b648213169de8b96ec2cea4c65.jpg" alt=""></li>
+     <li><img width="200px" id="front" src="https://i.pinimg.com/736x/9f/ec/22/9fec22a9d5f1858519abdaa800d47496.jpg" alt=""></li>
+     <li><img width="200px" id="sword" src="https://i.pinimg.com/736x/9b/44/e8/9b44e82c2ec175a33a9bd269ab4c217b.jpg" alt=""></li>
+    </ul>
+</body>
+<script > 
+
+document.querySelector('#images').addEventListener('click', (e)=>{
+console.log("clicked inside the ul")
+})
+ document.querySelector('#front').onclick=function(){
+    console.log("front clicked")
+ }
+
+document.getElementById('back').addEventListener('click', function(e){
+    e.stopPropagation();
+    console.log("clicked back")
+})
+
+document.querySelector('#images').addEventListener('click', function(e){
+    console.log(e.target.parentNode);
+    if(e.target.tagName ==="IMG"){
+    const imgremove=e.target.parentNode;
+    imgremove.remove();}
+})
+</script>
+</html>

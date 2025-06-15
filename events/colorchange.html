@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>change color</title>
+</head>
+<body>
+    <button style="background-color: brown;" id="start">Start</button>
+    <button style="background-color: brown;" id="stop">Stop</button>
+</body>
+<script>
+function geneColor(){
+  const hexa="0123456789ABCDEF"
+  let randcolor="#"
+  for(let i=0;i<6;i++){
+randcolor+=hexa[Math.floor(Math.random()*16)];
+  }
+  return randcolor; 
+}
+   function changeBackground(){
+document.body.style.backgroundColor=geneColor();
+   }
+ let interval;  
+   function start(){
+interval=setInterval(changeBackground,1000);
+   }
+   function stop(){
+    clearInterval(interval,1000);
+   }
+
+   document.querySelector('#start').addEventListener('click',start)
+   document.querySelector("#stop").addEventListener('click',stop)
+</script>
+</html>
