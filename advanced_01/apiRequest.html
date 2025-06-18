@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <li>
+        <img id="profpic" src="" alt="">
+        <img src="" alt="" id="profpic1">
+    </li>
+    <button id="btn" style="background: red;">fetch</button>
+</body>
+<script>
+const requestURL='https://api.github.com/users/AlgoAlchemist04'
+const xhr=new XMLHttpRequest();
+xhr.open('GET',requestURL);
+let data='';
+xhr.onreadystatechange=function (){
+    console.log(xhr.readyState);
+if(xhr.readyState==4){
+ data=JSON.parse(this.responseText);
+
+document.querySelector('h1').innerHTML=data.avatar_url;
+
+
+}
+}
+const requestURL1='https://api.github.com/users/FatNeutron'
+const xhr1=new XMLHttpRequest();
+xhr1.open('GET',requestURL1);
+let data1='';
+xhr1.onreadystatechange=function (){
+    console.log(xhr1.readyState);
+if(xhr1.readyState==4){
+ data1=JSON.parse(this.responseText);
+
+document.querySelector('h1').innerHTML=data1.avatar_url;
+
+
+}
+}
+document.querySelector('#btn').addEventListener('click', function(e){
+    e.preventDefault();
+    console.log("hello world")
+    document.querySelector('#profpic').setAttribute('src',`${data.avatar_url}`)
+     document.querySelector('#profpic1').setAttribute('src',`${data1.avatar_url}`)
+})
+xhr.send();
+xhr1.send();
+
+
+</script>
+
+</html>
